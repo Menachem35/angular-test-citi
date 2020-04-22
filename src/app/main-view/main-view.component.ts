@@ -15,7 +15,29 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   private generatePrices = interval(5000); // Create the interval to generate prices every 5 seconds
 
-  //public selectedCoinsPair: string;
+  public selectedCoinsPair: any;
+  public x: any[] = [
+    {
+      id: 'eurUsd',
+      value: 'EUR/USD'
+    },
+    {
+      id: 'eurGbp',
+      value: 'EUR/GBP'
+    },
+    {
+      id: 'usdCad',
+      value: 'USD/CAD'
+    },
+    {
+      id: 'audCad',
+      value: 'AUD/CAD'
+    },
+    {
+      id: 'usdJpy',
+      value: 'USD/JPY'
+    }
+  ];
 
   private bidPrice: number;
   private offerPrice: number;

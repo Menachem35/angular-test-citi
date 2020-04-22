@@ -7,8 +7,9 @@
             <div class="pairsHeader">
               <div class="redRightArrow">></div>
               <div>
-                <select class="coinsDropDown"> <!-- [(ngModel)]="selectedCoinsPair" -->
-                  <option *ngFor="let coinsSymbols of coins.coins" [value]="coinsSymbols">{{coinsSymbols}}</option>
+                <select class="coinsDropDown" [(ngModel)]="selectedCoinsPair"> <!-- [(ngModel)]="selectedCoinsPair" -->
+                <!-- let coinsSymbols of coins.coins -->
+                  <option *ngFor="let currencySymbols of x" [value]="currencySymbols.id">{{currencySymbols.value}}</option>
                 </select>
               </div>
               <div class="removeCoinsPair" (click)="removeItem(i)">

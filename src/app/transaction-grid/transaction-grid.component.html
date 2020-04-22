@@ -3,8 +3,6 @@
     		class="ag-theme-balham"
     		[rowData]="rowData"
     		[columnDefs]="columnDefs"
+        (gridReady)="onGridReady($event)"
     	>
 	</ag-grid-angular>
-<p>
-transaction-grid works!
-</p>

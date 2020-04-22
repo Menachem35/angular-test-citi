@@ -13,17 +13,20 @@ export class CoinsAppService {
    * @param action: Bid or Offer
    * The method uses the next method to send the clicked button information to buy-sell component
    */
-  createAskBid(action: string): void {
+  createAskBid(actionDetails: any): void {
     let getClass: string;
 
-    if (action === "Bid") {
+    if (actionDetails.action === "Bid") {
       getClass = "askBidContainer";
-    } else if (action === "Offer") {
+    } else if (actionDetails.action === "Offer") {
       getClass = "askOfferContainer";
     }
     this.subject.next({
-      "action":action, 
-      "class": getClass
+      "action":actionDetails.action, 
+      "class": getClass,
+      "currencies": actionDetails.currenciesPair,
+      "bid": actionDetails.bidPrice,
+      "offer": actionDetails.offerPrice
     });
   }
 

@@ -7,9 +7,10 @@
             <div class="pairsHeader">
               <div class="redRightArrow">></div>
               <div>
-                <select class="coinsDropDown" [(ngModel)]="selectedCoinsPair"> <!-- [(ngModel)]="selectedCoinsPair" -->
+                <select class="coinsDropDown"
+                        (change)="setSelectedCurrencies($event)"> <!-- [(ngModel)]="selectedCoinsPair" -->
                 <!-- let coinsSymbols of coins.coins -->
-                  <option *ngFor="let currencySymbols of x" [value]="currencySymbols.id">{{currencySymbols.value}}</option>
+                  <option *ngFor="let currenciesSymbols of coins.coins">{{currenciesSymbols}}</option>
                 </select>
               </div>
               <div class="removeCoinsPair" (click)="removeItem(i)">
@@ -47,11 +48,11 @@
       <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
   </div>
   <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
+      <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
         <app-buy-sell></app-buy-sell>
       </div>
-      <div class="col-2"></div>
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
   </div>
 
   <!-- Transaction grid  -->

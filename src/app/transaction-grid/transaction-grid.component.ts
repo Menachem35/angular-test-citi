@@ -41,10 +41,16 @@ export class TransactionGridComponent implements OnInit {
         'Bid': 10000000,
         'Offer': 200000000
       }
+      
+      const rate: object = {
+        'Bid': data.bid,
+        'Offer': data.offer
+      };
+
       this.rowData.push({
-        'CurrencyPair': '',
+        'CurrencyPair': data.currencies,
         'Direction': action[data.action],
-        'DealRate':'',
+        'DealRate':rate[data.action],
         'Notional': getNotional[data.action]
       });
       this.gridApi.setRowData(this.rowData);

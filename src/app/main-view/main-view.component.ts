@@ -15,8 +15,8 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   private generatePrices = interval(5000); // Create the interval to generate prices every 5 seconds
 
-  public selectedCoinsPair: any;
-  public x: any[] = [
+  public selectedCoinsPair: string;
+  /*public x: any[] = [
     {
       id: 'eurUsd',
       value: 'EUR/USD'
@@ -37,7 +37,7 @@ export class MainViewComponent implements OnInit, OnDestroy {
       id: 'usdJpy',
       value: 'USD/JPY'
     }
-  ];
+  ];*/
 
   private bidPrice: number;
   private offerPrice: number;
@@ -87,6 +87,13 @@ export class MainViewComponent implements OnInit, OnDestroy {
   public displayBids: number = 0;
 
   /**
+   * @param $event - get selected option from dropdown
+   */
+  setSelectedCurrencies($event): void {
+    this.selectedCoinsPair = $event.target.options[$event.target.options.selectedIndex].text;
+  }
+
+  /**
    * Adds new pair when click the green plus button
    */
   addCoinsPair(): void {
@@ -110,9 +117,16 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   /**
    * @param bidOrOffer - when click on Bid Offer button decides if the new cotainer underneath is green or red
+   * The function then using
    */
   createBidOffer(bidOrOffer: string): void {
-    this.coinsAppService.createAskBid(bidOrOffer);
+    let bidOfferDetails: any = {
+      'currenciesPair': this.selectedCoinsPair,
+      'bidPrice': this.displayBidPrice1 + this.displayBidPrice2 + this.displayBidPrice3,
+      'offerPrice': this.displayOfferPrice1 + this.displayOfferPrice2 + this.displayOfferPrice3,
+      'action': bidOrOffer
+    };
+    this.coinsAppService.createAskBid(bidOfferDetails);
   }
 
   /**
@@ -156,6 +170,8 @@ export class MainViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.selectedCoinsPair = 'EUR/USD'; // Default;
+    
     this.pricingGenerator(); // Create random prices
     this.generatePrices.subscribe(data => {
       this.pricingGenerator();

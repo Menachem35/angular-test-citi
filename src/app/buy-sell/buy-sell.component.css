@@ -17,6 +17,10 @@
 
 }
 
+.price {
+  margin-left: 30%;
+}
+
 .askOfferContainer {
   background-color: red;
 }

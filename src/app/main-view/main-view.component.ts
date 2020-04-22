@@ -15,7 +15,7 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   private generatePrices = interval(5000); // Create the interval to generate prices every 5 seconds
 
-  public selectedCoinsPair: string;
+  //public selectedCoinsPair: string;
 
   private bidPrice: number;
   private offerPrice: number;
@@ -130,14 +130,14 @@ export class MainViewComponent implements OnInit, OnDestroy {
         this.displayOfferPrice3 = bidPriceToStr.substr(6,1);
       }
       
-      console.log(this.bidPrice);
+      //console.log(this.bidPrice);
   }
 
   ngOnInit() {
     this.pricingGenerator(); // Create random prices
-    /*this.generatePrices.subscribe(data => {
+    this.generatePrices.subscribe(data => {
       this.pricingGenerator();
-    });*/
+    });
     
     /*setInterval(() => {
       

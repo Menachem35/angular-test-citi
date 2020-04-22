@@ -15,6 +15,8 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   private generatePrices = interval(5000); // Create the interval to generate prices every 5 seconds
 
+  public selectedCoinsPair: string;
+
   private bidPrice: number;
   private offerPrice: number;
 
@@ -76,15 +78,24 @@ export class MainViewComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * Remove container
+   * @param selectedItem - array index
+   */
   removeItem(selectedItem): void {
     this.coinsPair.splice(selectedItem, 1);
   }
 
+  /**
+   * @param bidOrOffer - when click on Bid Offer button decides if the new cotainer underneath is green or red
+   */
   createBidOffer(bidOrOffer: string): void {
     this.coinsAppService.createAskBid(bidOrOffer);
   }
 
-  // Creates random numbers (prices)
+  /**
+   * Creates random numbers (prices)
+   */
   pricingGenerator(): void {
     let x = Math.random() + 1;
       let y = Math.random() + 1;
@@ -124,9 +135,9 @@ export class MainViewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.pricingGenerator(); // Create random prices
-    this.generatePrices.subscribe(data => {
+    /*this.generatePrices.subscribe(data => {
       this.pricingGenerator();
-    });
+    });*/
     
     /*setInterval(() => {
       

@@ -6,7 +6,7 @@
             <div class="pairsHeader">
               <div class="redRightArrow">></div>
               <div>
-                <select class="coinsDropDown">
+                <select class="coinsDropDown" [(ngModel)]="selectedCoinsPair">
                   <option *ngFor="let coinsSymbols of coins.coins" value="coins.coins">{{coinsSymbols}}</option>
                 </select>
               </div>

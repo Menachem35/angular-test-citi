@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-      <div class="col-12">
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
+      <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
         <div class="main-container">
           <div class="pairs-container" *ngFor="let coins of coinsPair; index as i">
             <div class="pairsHeader">
@@ -42,6 +43,7 @@
           </div>
         </div>
       </div>
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
   </div>
   <div class="row">
       <div class="col-2"></div>
@@ -49,6 +51,15 @@
         <app-buy-sell></app-buy-sell>
       </div>
       <div class="col-2"></div>
+  </div>
+
+  <!-- Transaction grid  -->
+  <div class="row">
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
+      <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
+          <app-transaction-grid></app-transaction-grid>
+      </div>
+      <div class="col-xl-3 d-xl-block col-lg-2 d-lg-block d-md-none d-sm-none d-none"></div>
   </div>
 </div>
     
